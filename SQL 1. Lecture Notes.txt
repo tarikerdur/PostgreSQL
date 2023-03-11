@@ -1,0 +1,146 @@
+SQL = Structured Query Language (Yapılandırılmış Sorgu Dili)
+
+	Neden sorgu dili denmiş?
+Biz SQL ile sorgulamalar yapıcaz bu yuzden yapılandırılmıs sorgu dili denmiş.
+
+	SQL databasedeki verileri sorgulamak (Read), güncellemek (Update),
+silmek (Delete), yeni veri eklemek (Create) için kullanılan bir dildir.
+
+	Database birbiri ile ilişkili verilerin bir arada bulunduğu yere denir.
+
+	Biz SQL ile birbiri ile ilişkili verilerin bulunduğu database'i sorgulayacağız.
+Gerektiğinde güncelleyecez, silecez, yeni veriler ekleyeceğiz.
+
+	Cloud sistemi bir database'dir. Büyük şirketer verilerini Cloud'da saklar.
+
+	Database örnekleri: İnsan beyni, harddisk, SalesForce, Whatsapp v.b.
+
+		Benefits of Digital Database:
+	Large amount of data can be stored.
+	Easy to entry.
+	Easy to changing data like kind of Creating, Reading, Updating, Deleting.
+	Easy to reach to Data.
+	Güvenlidir.
+
+	Hem Selenium hem API hem de SQL sorgusuyla database
+doğrulama testi yaparsak bize Full Stack Automation Engineer derler.
+
+	End To End (E2E) Testing yaparken Database'e veriyi Selenium veya SQL veya API ile
+gönderip verilerin testlerini hem Selenium hem SQL hem de API ile test edebiliriz.
+
+		DBMS -> Database Management System (Veritabanı Yönetim Sistemi)
+	Esasında DBMS bizim kullanacağımız PgAdmin'dir.
+Bu program sayesinde database'e erişiriz.
+	Database erişimini düzenler.
+	Data güvenliği sağlar.
+	Create, Read, Update, Delete (CRUD) istemlerini düzenler.
+	Database'den rapor alır.
+
+
+	SQL'de bütün veriler tablolarda saklanır.
+	Header = Başlık	(Bunlar veri sayılmaz)
+	Row (Record) = Satır
+	Column (Field) = Sütun
+	
+		Relational Databases (İlişkili Tablolar)
+	Tabloların ve ilişkilerin bütününe SCHEMA denir.
+	Tablolar arası ilişkiler net olmalıdır.
+	Tablolar arası geçiş kolay olmalıdır.
+
+
+
+	Most popular DBMSs :
+
+1-	Microsoft SQL, Microsoft tarafından geliştirilmiştir.
+Pahalıdır ama zengin bir user interface'e sahiptir. Büyük dataları kolaylıkla saklar.
+
+2-	MySQL, MySQL tarafından geliştirilmiştir.
+Eş zamanlı işlem girildiğinde çalışma durdurulabilir.
+Açık kaynaklıdır, online destek ve ücretsiz çok sayıda döküman mevcuttur.
+
+3-	Oracle SQL, Larry Ellison tarafından geliştirilmiştir.
+Karmaşıktır. Ama yüksek güvenlikli ve OOP'ye uyumludur.
+
+4-	PostgreSQL, Michael Stonebraker tarafından geliştirilmiştir.
+Yeni nesil olarak ortaya çıkmıştır. Zor görevler için idealdir.
+(We are learning to this SQL System)
+
+
+
+		PostgreSQL komutları 4 ana gruba ayrılır
+	1- Data Definition Language (Tabloda oynama yapar)
+Create	: Tablo oluşturur
+Drop		: Tabloyu siler
+Alter		: Tabloyu günceller
+
+		*****	Definition	= Tanımlama
+		*****	Drop	.....	= Düşürmek, Bırakmak
+		*****	Alter	.....	= Değiştirmek
+
+	2- Data Manipulation Language (Tablodaki VERİLERDE oynama yapar)
+Insert	: Tabloya VERİ ekler
+Delete	: Tablodaki VERİLERİ siler
+Update	: Tablodaki VERİLERİ günceller
+
+	3- Data Query Language
+Select	: Tablodaki verileri listeler
+
+	4- Data Control Language (Bunu siz kullanmayacaksınız. SQL Developerlar kullanacak, dedi.)
+Grant		: Bir kullanıcıya yetki vermek için kullanılır.
+Revoke	: Bir kullanıcıya verilen yetkiyi geri almak için kullanılır.
+
+
+			Data types in PostgreSQL
+		String data types :
+1-	char (size)	: Uzunluğu belli olan String datalar için kullanılır. (TCKN = 11 hane gibi)
+Max boyut 2000 byte olur.
+
+2-	varchar(size)	: Uzunluğu belli olmayan (Ad-Soyad, Adres gibi) String datalar için kullanılır.
+Max boyut 4000 byte olur.
+
+		Numeric data types :
+1-	numeric (p,s)	: p -> Sayıda kullanılan rakamların miktarını gösterir.
+				  s -> Ondalık kısımda kullanılan rakamların miktarını gösterir.
+*****numeric(p,s) çok kullanılmaz, dedi. Örnek: 1234.56 --> numeric(6,2) --> p:6 s:2
+
+2-	int	: Tam sayılar için kullanılır.
+
+3-	real	: Decimal sayılar için kullanılır.
+
+		Date data type :
+1-	date	: Tablodaki sütunlara (columns) tarih depolamak için kullanılır.
+	date Yıl, Ay, Gün --> Standart Format : YYYY-MM-dd (1982-07-01 gibi)
+
+
+		CONSTRAINT (Kısıtlamalar)
+Unique		: Bir sütundaki tüm verilerin benzersiz olmasıdır.
+
+Not Null		: Bir sütundaki hiçbir verinin NULL içermemesidir.
+	NOT NULL kısıtlaması için constraint ismi tanımlanmaz.
+	NOT NULL kısıtlaması data türünden hemen sonra yazılır.
+
+Check			: Bir sütuna yerleştirilebilecek değer aralığını sınırlamak için kullanılır.
+
+Primary Key	: Bir sütundaki tüm verilerin benzersiz olması
+	ve NULL içermemesidir. (Unique + NOT NULL)
+	Bir tabloda sadece bir tane Primary Key kullanabiliriz.
+	Her tabloda Primary Key olması zorunlu değildir.
+	Primary Key'in olduğu tabloya Parent Table denir.
+
+Foreign Key	: Başka bir tablodaki Primary Key'i referans göstermek için kullanılır.
+	Bu sayede tablolar arasında parent-child ilişki kurulmuş olur.
+	Tekrarlı değer içerebilir.
+	NULL değer kabul eder.
+	Bir tabloda birden fazla Foreign Key olabilir.
+	Foreign Key'in olduğu tabloya Child Table denir.
+
+
+
+Composite Key	: Tek başına bir sütun Primary Key özelliklerini taşımıyorsa
+	bu özelliği elde etmek için iki sütun birleştirilerek bir Primary Key oluşturulabilir.
+	Bu duruma Composite Key denir.
+
+
+	Primary Key dış dünyadaki gerçek verileri temsil ediyorsa buna Natural Key denir.
+	Primary Key dış dünyadaki gerçek verileri temsil etmiyorsa buna Surrogate Key denir.
+(Surrogate = vekil)
